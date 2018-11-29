@@ -1,8 +1,9 @@
 import * as React from "react";
-import { MockedProvider } from "react-apollo/test-utils";
+import { MockedProvider, MockedResponse } from "react-apollo/test-utils";
 import { MemoryRouter } from "react-router";
 import { mount, ReactWrapper } from "enzyme";
 
+import app from "../../src/lib/app";
 import { Error } from "../../src/components/Error";
 import { Loading } from "../../src/components/Loading";
 import { Routes } from "../../src/components/Routes";
@@ -10,7 +11,7 @@ import { PROJECT_QUERY } from "../../src/pages/Project";
 
 import wait from "../utils/wait";
 
-const mocks = [
+const mocks: ReadonlyArray<MockedResponse> = [
   {
     request: {
       query: PROJECT_QUERY,
@@ -36,6 +37,7 @@ describe("Project page", () => {
   let component: ReactWrapper;
 
   beforeEach(() => {
+    app.signIn("token");
     component = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
         <MemoryRouter initialEntries={["/projects/1"]}>

@@ -3,6 +3,7 @@ import { MockedProvider } from "react-apollo/test-utils";
 import { MemoryRouter } from "react-router";
 import { mount, ReactWrapper } from "enzyme";
 
+import app from "../../src/lib/app";
 import { Error } from "../../src/components/Error";
 import { Loading } from "../../src/components/Loading";
 import { Routes } from "../../src/components/Routes";
@@ -46,6 +47,7 @@ describe("Projects page", () => {
   let component: ReactWrapper;
 
   beforeEach(() => {
+    app.signIn("token");
     component = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
         <MemoryRouter initialEntries={["/projects"]}>
