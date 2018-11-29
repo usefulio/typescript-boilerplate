@@ -12,7 +12,7 @@ All the source files are located in the `src` folder which is divided into follo
   - `queries` - all the GraphQL queries used in the app
   - `mutations` - all the GraphQL mutations used in the app
 - `pages` - components used as pages in routing
-- `types` - some TypeScript types defined to be used as component property types
+- `types` - TypeScript generated from running GraphQL server using the `npm run types` command
 
 The test files are located in the `tests` directory.
 
