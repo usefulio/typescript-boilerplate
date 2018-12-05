@@ -2,5 +2,6 @@
   "compilerOptions": {
     "lib": ["dom", "es2016", "esnext.asynciterable"],
     "jsx": "react"
-  }
+  },
+  "include": ["./src"]
 }
