@@ -10,6 +10,11 @@ type Mutation {
   signIn(password: String!, email: String!): String
 }
 
+type Organization {
+  id: Int!
+  name: String!
+}
+
 type Project {
   id: Int!
   name: String!
@@ -43,4 +48,6 @@ type User {
   updatedAt: DateTime!
   fullName: String!
   projects: [Project!]!
+  organization: Organization!
+  organizationId: Int!
 }

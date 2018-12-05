@@ -8,12 +8,15 @@ import { createProject } from "../utils/createProject";
 import { createUser } from "../utils/createUser";
 import { ProjectService } from "../mocks/ProjectService";
 import { UserService } from "../mocks/UserService";
+import { OrganizationService } from "../mocks/OrganizationService";
 
 describe("UserResolver", () => {
   it(`should resolve the "user" query with the user object`, async () => {
+    const organizations = [];
     const users = [createUser()];
     const projects = [createProject({ user: users[0] })];
     const userResolver = new UserResolver(
+      new OrganizationService(organizations),
       new ProjectService(projects),
       new UserService(users),
     );
@@ -25,9 +28,11 @@ describe("UserResolver", () => {
   });
 
   it(`should resolve the "user" query with undefined value`, async () => {
+    const organizations = [];
     const users = [];
     const projects = [];
     const userResolver = new UserResolver(
+      new OrganizationService(organizations),
       new ProjectService(projects),
       new UserService(users),
     );
@@ -38,9 +43,11 @@ describe("UserResolver", () => {
   });
 
   it(`should resolve the "users" query with users list`, async () => {
+    const organizations = [];
     const users = [createUser()];
     const projects = [createProject({ user: users[0] })];
     const userResolver = new UserResolver(
+      new OrganizationService(organizations),
       new ProjectService(projects),
       new UserService(users),
     );
@@ -53,9 +60,11 @@ describe("UserResolver", () => {
   });
 
   it(`should resolve the "users" query with empty users list`, async () => {
+    const organizations = [];
     const users = [];
     const projects = [];
     const userResolver = new UserResolver(
+      new OrganizationService(organizations),
       new ProjectService(projects),
       new UserService(users),
     );
@@ -66,6 +75,7 @@ describe("UserResolver", () => {
   });
 
   it(`should resolve the "projects" field with user's projects list`, async () => {
+    const organizations = [];
     const users = [createUser(), createUser()];
     const projects = [
       createProject({ user: users[0] }),
@@ -73,6 +83,7 @@ describe("UserResolver", () => {
       createProject({ user: users[1] }),
     ];
     const userResolver = new UserResolver(
+      new OrganizationService(organizations),
       new ProjectService(projects),
       new UserService(users),
     );
@@ -86,9 +97,11 @@ describe("UserResolver", () => {
   });
 
   it(`should resolve the "projects" field with user's empty projects list`, async () => {
+    const organizations = [];
     const users = [createUser()];
     const projects = [];
     const userResolver = new UserResolver(
+      new OrganizationService(organizations),
       new ProjectService(projects),
       new UserService(users),
     );

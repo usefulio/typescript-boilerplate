@@ -5,9 +5,15 @@
 // GraphQL query operation: user
 // ====================================================
 
+export interface user_user_organization {
+  __typename: "Organization";
+  name: string;
+}
+
 export interface user_user {
   __typename: "User";
   fullName: string;
+  organization: user_user_organization;
 }
 
 export interface user {

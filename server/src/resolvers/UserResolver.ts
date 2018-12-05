@@ -13,6 +13,7 @@ import {
 import * as bcryptjs from "bcryptjs";
 import * as jwt from "jsonwebtoken";
 
+import { OrganizationService } from "../services/OrganizationService";
 import { ProjectService } from "../services/ProjectService";
 import { UserService } from "../services/UserService";
 
@@ -23,6 +24,7 @@ import { Context } from "../utils/Context";
 @Resolver(of => User)
 export class UserResolver {
   constructor(
+    private readonly organizationService: OrganizationService,
     private readonly projectService: ProjectService,
     private readonly userService: UserService,
   ) {}
@@ -57,6 +59,13 @@ export class UserResolver {
   @FieldResolver({ description: "Return list of projects for a given user" })
   projects(@Root() user: User) {
     return this.projectService.findByUserId(user.id);
+  }
+
+  @FieldResolver({
+    description: "Returns organization that this user belongs to",
+  })
+  organization(@Root() user: User) {
+    return this.organizationService.findOneById(user.organizationId);
   }
 
   @Mutation(returns => String, { nullable: true })

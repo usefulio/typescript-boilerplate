@@ -5,8 +5,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
 
+import { Organization } from "./Organization";
 import { Project } from "./Project";
 
 @ObjectType()
@@ -43,8 +45,8 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @Field(type => String)
-  fullName() {
+  @Field()
+  fullName(): string {
     const fullName = [];
     if (this.firstName) {
       fullName.push(this.firstName);
@@ -60,4 +62,11 @@ export class User {
 
   @Column("varchar", { array: true })
   roles: string[];
+
+  @Field()
+  @ManyToOne(type => Organization)
+  organization: Organization
+
+  @Field(type => Int)
+  organizationId: number;
 }

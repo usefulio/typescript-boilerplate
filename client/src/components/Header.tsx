@@ -22,6 +22,9 @@ export const USER_QUERY = gql`
   query user {
     user {
       fullName
+      organization {
+        name
+      }
     }
   }
 `;
@@ -64,7 +67,7 @@ class Header extends React.Component<HeaderProps> {
                   return (
                     <React.Fragment>
                       <Typography color="inherit">
-                        Logged in as {data.user.fullName}
+                        Logged in as {data.user.fullName} from {data.user.organization.name}
                       </Typography>
                       <Button
                         color="inherit"
