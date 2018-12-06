@@ -1,0 +1,3 @@
+  mutation signIn($email: String!, $password: String!) {
+    token: signIn(email: $email, password: $password)
+  }

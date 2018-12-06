@@ -17,17 +17,7 @@ import { UserQuery } from "./UserQuery";
 
 // Other.
 import app from "../lib/app";
-
-export const USER_QUERY = gql`
-  query user {
-    user {
-      fullName
-      organization {
-        name
-      }
-    }
-  }
-`;
+import USER_QUERY from "../graphql/userQuery.gql";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -67,7 +57,8 @@ class Header extends React.Component<HeaderProps> {
                   return (
                     <React.Fragment>
                       <Typography color="inherit">
-                        Logged in as {data.user.fullName} from {data.user.organization.name}
+                        Logged in as {data.user.fullName} from{" "}
+                        {data.user.organization.name}
                       </Typography>
                       <Button
                         color="inherit"

@@ -5,7 +5,7 @@
     "build": "parcel build src/index.html --out-dir dist --experimental-scope-hoisting",
     "dev": "parcel serve src/index.html --out-dir dist --port 3000 --open",
     "test": "jest",
-    "types": "apollo client:codegen src/types --config=apollo.config.js --addTypename --outputFlat --target typescript"
+    "types": "apollo client:codegen src/types --includes=src/**/*.gql --localSchemaFile=../server/schema.gql --addTypename --outputFlat --target=typescript"
   },
   "dependencies": {
     "@material-ui/core": "^3.5.1",

@@ -16,12 +16,7 @@ import { SignInMutation } from "../components/SignInMutation";
 // Other.
 import sha256 from "../lib/sha256";
 import app from "../lib/app";
-
-const SIGNIN_MUTATION = gql`
-  mutation signIn($email: String!, $password: String!) {
-    token: signIn(email: $email, password: $password)
-  }
-`;
+import SIGNIN_MUTATION from "../graphql/signInMutation.gql";
 
 const styles = (theme: Theme) =>
   createStyles({

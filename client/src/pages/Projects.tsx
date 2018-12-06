@@ -17,20 +17,7 @@ import {
 import { Error } from "../components/Error";
 import { Loading } from "../components/Loading";
 import { ProjectsQuery } from "../components/ProjectsQuery";
-
-export const PROJECTS_QUERY = gql`
-  query projects {
-    projects {
-      id
-      name
-      createdAt
-      user {
-        id
-        fullName
-      }
-    }
-  }
-`;
+import PROJECTS_QUERY from "../graphql/projectsQuery.gql";
 
 const styles = (theme: Theme) =>
   createStyles({

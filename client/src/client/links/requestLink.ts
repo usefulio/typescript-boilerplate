@@ -7,7 +7,7 @@ export default new ApolloLink(
       let handle;
       Promise.resolve(operation)
         .then(operation => {
-          const token = app.getToken("requestLink");
+          const token = app.getToken();
           const headers = {};
           if (token) {
             headers["Authorization"] = `Bearer ${token}`;

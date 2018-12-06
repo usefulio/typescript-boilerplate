@@ -1,1 +1,5 @@
-export default {};
+import Mutation from "./resolvers/Mutation";
+
+export default {
+  Mutation,
+};

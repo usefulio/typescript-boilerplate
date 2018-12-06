@@ -1,0 +1,11 @@
+query project($id: Int!) {
+  project(id: $id) {
+    id
+    name
+    createdAt
+    user {
+      id
+      fullName
+    }
+  }
+}

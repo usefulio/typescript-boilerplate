@@ -1,0 +1,3 @@
+mutation setSessionVariable($name: String!, $value: String!) {
+  setSessionVariable(name: $name, value: $value) @client
+}

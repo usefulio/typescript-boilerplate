@@ -1,0 +1,13 @@
+extend type Query {
+  session: Session
+}
+
+extend type Mutation {
+  setSessionVariable(name: String!, value: String): String
+}
+
+type Session {
+  a: String!
+  b: String!
+  c: String!
+}

@@ -1,8 +1,11 @@
+import getSessionVariable from "./app/getSessionVariable";
+import setSessionVariable from "./app/setSessionVariable";
+
 const app = {
   isSignedIn() {
     return this.getToken() !== null;
   },
-  getToken(from: string = null) {
+  getToken() {
     return localStorage.getItem("token");
   },
   signIn(token: string) {
@@ -13,6 +16,10 @@ const app = {
     localStorage.removeItem("token");
     window.location.reload();
   },
+  getSessionVariable,
+  setSessionVariable,
 };
+
+window["app"] = app;
 
 export default app;
