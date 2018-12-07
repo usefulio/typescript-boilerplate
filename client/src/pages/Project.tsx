@@ -1,4 +1,3 @@
-import gql from "graphql-tag";
 import * as React from "react";
 import { compose } from "react-apollo";
 import { RouteComponentProps, withRouter } from "react-router-dom";

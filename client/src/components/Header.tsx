@@ -1,6 +1,4 @@
-import gql from "graphql-tag";
 import * as React from "react";
-import { Redirect } from "react-router-dom";
 
 // Components.
 import AppBar from "@material-ui/core/AppBar";

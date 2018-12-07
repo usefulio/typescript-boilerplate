@@ -1,8 +1,8 @@
 import { Mutation } from "react-apollo";
 
-import {
-  signIn as SignInData,
-  signInVariables as SignInVariables,
-} from "../types/signIn";
+import { SignIn } from "../types";
 
-export class SignInMutation extends Mutation<SignInData, SignInVariables> {}
+export class SignInMutation extends Mutation<
+  SignIn.Mutation,
+  SignIn.Variables
+> {}

@@ -1,0 +1,9 @@
+{
+  "schema": ["../server/schema.gql", "./schema.gql"],
+  "documents": "./src/**/*.gql",
+  "generates": {
+    "./src/types.ts": {
+      "plugins": ["typescript-client", "typescript-common"]
+    }
+  }
+}

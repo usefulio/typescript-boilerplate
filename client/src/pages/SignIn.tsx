@@ -1,4 +1,3 @@
-import gql from "graphql-tag";
 import * as React from "react";
 
 // Components.

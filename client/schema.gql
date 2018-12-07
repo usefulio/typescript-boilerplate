@@ -1,8 +1,8 @@
-extend type Query {
+type Query {
   session: Session
 }
 
-extend type Mutation {
+type Mutation {
   setSessionVariable(name: String!, value: String): String
 }
 
